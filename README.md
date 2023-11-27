@@ -1,1 +1,3 @@
-0x00-Python-Hello, World!
+alx-higher_level_programming
+
+&copy Michael Megbenu, 2023
