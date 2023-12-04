@@ -8,24 +8,24 @@
  */
 listint_t *reverse(listint_t *head)
 {
-    listint_t *current = head;
-    listint_t *prev = NULL;
-    listint_t *next = NULL;
+	listint_t *current = head;
+	listint_t *prev = NULL;
+	listint_t *next = NULL;
 
-    while (current != NULL)
-    {
-        next = current->next; /* Store the next node */
-        current->next = prev; /* Reverse the pointer direction */
+	while (current != NULL)
+	{
+		next = current->next; /* Store the next node */
+		current->next = prev; /* Reverse the pointer direction */
 
-        /* Move pointers one step ahead */
-        prev = current;
-        current = next;
-    }
+		/* Move pointers one step ahead */
+		prev = current;
+		current = next;
+	}
 
-    /* Update the new head of the reversed list */
-    head = prev;
+	/* Update the new head of the reversed list */
+	head = prev;
 
-    return (head);
+	return (head);
 }
 
 /**
