@@ -1,0 +1,59 @@
+The 6-Matrix multiplication:
+==============================
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Correct Usage:
+
+    >>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+    [[7, 10], [15, 22]]
+    >>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+    [[13, 16]]
+    >>> print(matrix_mul([[-1, -2]], [[-3, -4], [5, 6]]))
+    [[-7, -8]]
+
+On Errors:
+
+    >>> m_a = [[1, 2], [3, 4], [5, 6]]
+    >>> m_b = [[1, 2, 3], [4, 5, 6]]   
+
+    >>> print(matrix_mul(m_a, m_a))
+    Traceback (most recent call last):
+    TypeError: m_a and m_b can't be multiplied
+
+    >>> print(matrix_mul())
+    Traceback (most recent call last):
+    TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+    >>> print(matrix_mul(m_a))
+    Traceback (most recent call last):
+    TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+    >>> m_a = [[]]
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    ValueError: m_a can't be empty
+
+    >>> m_a = []
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
+    >>> m_a = [(1, 2), (3, 4)]
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
+    >>> m_a = [[1, 2], ["three", 4], ["five", 6]]
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    TypeError: m_a should contain only integers or floats
+
+    >>> m_a = [[1, 2], [4, 5, 6]]
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    TypeError: each row of m_a must be of the same size
+
+    >>> print(matrix_mul(m_b, m_b))
+    Traceback (most recent call last):
+    TypeError: m_a and m_b can't be multiplied
