@@ -34,9 +34,9 @@ def matrix_divided(matrix, div):
     if matrix is None or len(matrix) == 0 or not isinstance(matrix[0], list):
         raise TypeError(message)
     new_matrix = []
-    lenght = len(matrix[0])
+    length = len(matrix[0])
     for row in matrix:
-        if len(row) != lenght:
+        if len(row) != length:
             raise TypeError("Each row of the matrix must have the same size")
         if (not row or
                 not isinstance(row, list) or

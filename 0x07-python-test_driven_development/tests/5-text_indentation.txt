@@ -22,24 +22,43 @@ Text Indentation Module:
 
 'text_indentation(...)': This function takes an input text and formats it into paragraphs. It adds two newline characters ("\n\n") after each occurrence of: '.', '?', or ':' in the text. Additionally, it ensures that there are no leading or trailing whitespace characters in each paragraph.
 
-    >>> text_indentation("Howdy, Yall!")
+    >>> text_indentation("Hey, Friends!")
     Howdy, Yall!
 
-    >>> text_indentation("Hello. How are you? This is an example.")
-    Hello.
+    >>> text_indentation("Hi!. Whatsup, you good? This is an example ok?.")
+    Hi!.
     <BLANKLINE>
-    How are you?
+    Whatsup, you good?
     <BLANKLINE>
-    This is an example.
+    This is an example ok?.
     <BLANKLINE>
 
-    >>> text_indentation("Hello. : \nI am a string? .\n")
-    Hello.
+    >>> t = "    MY BRAIN IS TOO BIG!...    This is a Wendys.\n     WOAHH    "
+    >>> text_indentation(t)
+    MY BRAIN IS TOO BIG!.
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    This is a Wendys.
+    <BLANKLINE>
+    <BLANKLINE>
+    WOAHH
+
+    >>> t = "Ori" + "shi" * 2
+    >>> text_indentation("Ori" + "shi" * 2)
+    Orishishi
+
+    >>> text_indentation("")
+
+    >>> text_indentation("Hi!. : \nThis is a string? .\n")
+    Hi!.
     <BLANKLINE>
     :
     <BLANKLINE>
     <BLANKLINE>
-    I am a string?
+    This is a string?
     <BLANKLINE>
     .
     <BLANKLINE>
@@ -53,25 +72,6 @@ Text Indentation Module:
     ?
     <BLANKLINE>
 
-    >>> t = "    MY SPOON IS TOO BIG!...    I am a banana.\n     WOAHH    "
-    >>> text_indentation(t)
-    MY SPOON IS TOO BIG!.
-    <BLANKLINE>
-    .
-    <BLANKLINE>
-    .
-    <BLANKLINE>
-    I am a banana.
-    <BLANKLINE>
-    <BLANKLINE>
-    WOAHH
-
-    >>> t = "Mwa" + "ha" * 2
-    >>> text_indentation("Mwa" + "ha" * 2)
-    Mwahaha
-
-    >>> text_indentation("")
-
 
 # On Errors:
 
@@ -79,28 +79,28 @@ Raise a TypeError, if the input text is not a string or is None.
 
 1- Missing Argument or Extra Arguments Error:
 
-    >>> text_indentation()
-    Traceback (most recent call last):
-    TypeError: text_indentation() missing 1 required positional argument: 'text'
-
     >>> text_indentation("ble", "ooh", "wah")
     Traceback (most recent call last):
     TypeError: text_indentation() takes 1 positional argument but 3 were given
 
-2- Non-String Argument Error:
-
-    >>> text_indentation(4)
+    >>> text_indentation()
     Traceback (most recent call last):
-    TypeError: text must be a string
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+2- Non-String Argument Error:
 
     >>> text_indentation(None)
     Traceback (most recent call last):
     TypeError: text must be a string
 
-    >>> text_indentation(["Hello. : \nI am a string? .\n"])
+    >>> text_indentation(4)
     Traceback (most recent call last):
     TypeError: text must be a string
 
-    >>> text_indentation({"text": "Hello! World!"})
+    >>> text_indentation({"text": "Hi!! World!"})
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation(["Hi!. : \nThis is a string? .\n"])
     Traceback (most recent call last):
     TypeError: text must be a string

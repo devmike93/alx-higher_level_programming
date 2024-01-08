@@ -21,21 +21,16 @@ it prints out a square to the terminal, made up of #
 # Correct Usage:
     
 'print_square(...)': This function takes an integer 'size' as input and prints a square pattern of '#' characters with the given size.
-
-    >>> print_square(1)
-    #
     
     >>> print_square(True)
     #
-    
-    >>> print_square(0)
+
+    >>> print_square(1)
+    #
 
     >>> print_square(False)
     
-    >>> print_square(3)
-    ###
-    ###
-    ###
+    >>> print_square(0)
     
     >>> print_square(5)
     #####
@@ -43,6 +38,11 @@ it prints out a square to the terminal, made up of #
     #####
     #####
     #####
+    
+    >>> print_square(3)
+    ###
+    ###
+    ###
     
 # On Errors:
 
@@ -60,11 +60,7 @@ If 'size' is less than 0 or not an integer, it raises appropriate exceptions.
     
 2- Non-Integer Argument Error:
 
-    >>> print(print_square("Not a number"))
-    Traceback (most recent call last):
-    TypeError: size must be an integer
-
-    >>> print(print_square(None))
+    >>> print(print_square("a string!"))
     Traceback (most recent call last):
     TypeError: size must be an integer
     
@@ -72,7 +68,7 @@ If 'size' is less than 0 or not an integer, it raises appropriate exceptions.
     Traceback (most recent call last):
     TypeError: size must be an integer
 
-    >>> print(print_square((2, 2)))
+    >>> print(print_square(None))
     Traceback (most recent call last):
     TypeError: size must be an integer
 
@@ -80,26 +76,30 @@ If 'size' is less than 0 or not an integer, it raises appropriate exceptions.
     Traceback (most recent call last):
     TypeError: size must be an integer
 
-    >>> print(print_square({2, 3}))
+    >>> print(print_square((2, 2)))
     Traceback (most recent call last):
     TypeError: size must be an integer
 
-    >>> print(print_square({2:"hi", 3:"bye"}))
+    >>> print(print_square({2:"you", 3:"fool"}))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> print(print_square({2, 3}))
     Traceback (most recent call last):
     TypeError: size must be an integer
 
 3- Negative Integer Argument Error: 
     
-    >>> print(print_square(-3.0))
-    Traceback (most recent call last):
-    TypeError: size must be an integer
-    
-    >>> print(print_square(-3))
+    >>> print(print_square(-4))
     Traceback (most recent call last):
     ValueError: size must be >= 0
     
+    >>> print(print_square(-4.0))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+    
 4- Overflow Error:
 
-    >>> print(print_square(2e8000))
+    >>> print(print_square(3e8000))
     Traceback (most recent call last):
     TypeError: size must be an integer
