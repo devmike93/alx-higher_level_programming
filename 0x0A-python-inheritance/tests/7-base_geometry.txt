@@ -1,0 +1,51 @@
+The 7-base_geometry Module:
+===========================
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+
+>>> bg.integer_validator("my_int", "try")
+Traceback (most recent call last):
+	  ...
+TypeError: my_int must be an integer
+>>> bg.integer_validator("my_int", 1.2)
+Traceback (most recent call last):
+	  ...
+TypeError: my_int must be an integer
+>>> bg.integer_validator("my_int", 'c')
+Traceback (most recent call last):
+	  ...
+TypeError: my_int must be an integer
+>>> bg.integer_validator("my_int", [1, 2])
+Traceback (most recent call last):
+	  ...
+TypeError: my_int must be an integer
+>>> bg.integer_validator("my_int", (0, 9))
+Traceback (most recent call last):
+	  ...
+TypeError: my_int must be an integer
+>>> bg.integer_validator("my_int", None)
+Traceback (most recent call last):
+	  ...
+TypeError: my_int must be an integer
+>>> bg.integer_validator("my_int", True)
+Traceback (most recent call last):
+	  ...
+TypeError: my_int must be an integer
+>>> bg.integer_validator("str", 0)
+Traceback (most recent call last):
+	  ...
+ValueError: str must be greater than 0
+>>> bg.integer_validator("str", -3)
+Traceback (most recent call last):
+	  ...
+ValueError: str must be greater than 0
+>>> bg.integer_validator(2, "str")
+Traceback (most recent call last):
+	  ...
+ValueError: Unknown format code 's' for object of type 'int'
+>>> bg.integer_validator("dict", {'k':'v'})
+Traceback (most recent call last):
+	  ...
+TypeError: dict must be an integer
