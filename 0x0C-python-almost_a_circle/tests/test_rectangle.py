@@ -24,15 +24,6 @@ class TestRectangleInstantiation(unittest.TestCase):
         """Reset the base class id counter"""
         Base._Base__nb_objects = 0
 
-    def test_instantiation(self):
-        r = Rectangle(5, 3, 1, 2, 12)
-        self.assertIsInstance(r, Base)
-        self.assertEqual(r.width, 5)
-        self.assertEqual(r.height, 3)
-        self.assertEqual(r.x, 1)
-        self.assertEqual(r.y, 2)
-        self.assertEqual(r.id, 12)
-
     def test_instantiation_with_default_values(self):
         r = Rectangle(5, 3)
         self.assertIsInstance(r, Rectangle)
@@ -42,6 +33,15 @@ class TestRectangleInstantiation(unittest.TestCase):
         self.assertEqual(r.y, 0)
         self.assertEqual(r.id, 1)
 
+    def test_instantiation(self):
+        r = Rectangle(5, 3, 1, 2, 12)
+        self.assertIsInstance(r, Base)
+        self.assertEqual(r.width, 5)
+        self.assertEqual(r.height, 3)
+        self.assertEqual(r.x, 1)
+        self.assertEqual(r.y, 2)
+        self.assertEqual(r.id, 12)
+
     def test_instantiation_args(self):
         with self.assertRaises(TypeError):
             r = Rectangle()
@@ -49,12 +49,6 @@ class TestRectangleInstantiation(unittest.TestCase):
             r = Rectangle(1)
         with self.assertRaises(TypeError):
             r = Rectangle(5, 3, 1, 2, 12, 2, 4)
-
-    def test_instantiation_multiple_rectangles(self):
-        r1 = Rectangle(5, 3)
-        r2 = Rectangle(4, 1)
-        self.assertNotEqual(r1.id, r2.id)
-        self.assertTrue(r1.id < r2.id)
 
     def test_instantiation_private(self):
         with self.assertRaises(AttributeError):
@@ -66,13 +60,11 @@ class TestRectangleInstantiation(unittest.TestCase):
         with self.assertRaises(AttributeError):
             print(Rectangle(5, 3).__y)
 
-    def test_instantiation_getter(self):
-        r = Rectangle(5, 3, 1, 2, 12)
-        self.assertEqual(r.width, 5)
-        self.assertEqual(r.height, 3)
-        self.assertEqual(r.x, 1)
-        self.assertEqual(r.y, 2)
-        self.assertEqual(r.id, 12)
+    def test_instantiation_multiple_rectangles(self):
+        r1 = Rectangle(5, 3)
+        r2 = Rectangle(4, 1)
+        self.assertNotEqual(r1.id, r2.id)
+        self.assertTrue(r1.id < r2.id)
 
     def test_instantiation_setter(self):
         r = Rectangle(5, 3, 1, 2)
@@ -84,6 +76,14 @@ class TestRectangleInstantiation(unittest.TestCase):
         self.assertEqual(r.x, 2)
         r.y = 3
         self.assertEqual(r.y, 3)
+
+    def test_instantiation_getter(self):
+        r = Rectangle(5, 3, 1, 2, 12)
+        self.assertEqual(r.width, 5)
+        self.assertEqual(r.height, 3)
+        self.assertEqual(r.x, 1)
+        self.assertEqual(r.y, 2)
+        self.assertEqual(r.id, 12)
 
 
 class TestRectangleAttributes(unittest.TestCase):
